@@ -56,7 +56,20 @@ for (let j = 1; j <= 20; j++) {
     for (let n = 1; n <= j; n++) {
         console.log(' x ');
     }
-
     console.log(' ');
-
+}
+const arr2 = [];
+for (i = 0; i < 5; i++) {
+    arr2.push(Math.round(Math.random() * 10));
+}
+console.log(arr2);
+let sumResultArr2 = 0;
+for (i = 0; i < arr2.length; i++) {
+    sumResultArr2 += arr2[i]
+}
+console.log(sumResultArr2);
+const minimum = Math.min.apply(null, arr2);
+console.log(minimum);
+for (i = 0; i < arr2.length; i++) {
+    if (arr2[i] == 3) { console.log(`в массиве есть цифра 3`); }
 }
