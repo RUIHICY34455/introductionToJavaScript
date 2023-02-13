@@ -11,7 +11,74 @@
 <body>
 
     <script src="js/script.js"></script>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" data-number="100">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text" data-number="50">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+            <a href="#" id="super_link" class="card-link">Card link</a>
+            <a href="#" class="card-link" data-number="50">Another link</a>
+        </div>
+    </div>
     <script>
+        /* 1. Найти по id, используя getElementById, элемент с id равным "super_link" и вывести этот элемент в консоль.
+         */
+        let super_link = document.getElementById('super_link');
+        console.log(super_link);
+        /*
+        2. Внутри всех элементов на странице, которые имеют класс "card-link",
+        поменяйте текст внутри элемента на "ссылка".
+        */
+        const cardELLink = document.querySelectorAll('.card-link');
+        cardELLink.forEach(element => {
+            cardELLink.textContent = 'ссылка';
+        });
+
+        /*
+        3. Найти все элементы на странице с классом "card-link", которые лежат в
+        элементе с классом "card-body" и вывести полученную коллекцию в консоль.
+        */
+        const cardLinkEl = document.querySelectorAll('.card-body .card-link');
+        cardLinkEl.forEach(element => {
+            console.log(cardLinkEl);
+        });
+
+        /*
+        4. Найти первый попавшийся элемент на странице у которого есть атрибут
+        data-number со значением 50 и вывести его в консоль.
+        */
+        let div = document.querySelector('div')
+        console.log(div.getAttribute('data-number'));
+        /*
+        5. Выведите содержимое тега title в консоль.
+        */
+        let title = document.getElementById('title');
+        console.log(title);
+        /*
+        6. Получите элемент с классом "card-title" и выведите его родительский узел
+        в консоль.
+        */
+        let cardtitle = document.getElementsByClassName('card-title');
+        console.log(cardtitle);
+        /*
+        7. Создайте тег p, запишите внутри него текст "Привет" и добавьте созданный
+        тег в начало элемента, который имеет класс "card".
+        */
+        const paragraf = document.createElement('p');
+        paragraf.textContent = 'Привет';
+        console.log(paragraf);
+        /*
+        8. Удалите тег h6 на странице.
+        */
+        const tegh6 = document.querySelector('h6');
+        tegh6.remove();
+    </script>
+    <!-- <script>
         // let temperatureCelsius = 25;
         // let temperatureFahrenheit = (9 / 5) * temperatureCelsius + 32;
         // console.log(`температура в градусах Цельсия = ${temperatureCelsius} С
@@ -28,36 +95,38 @@
         // let f = -25;
         // alert(-f);
 
-        let num1 = prompt('введите число')
-        let num2 = prompt('введите число')
-        console.log(num1 <= 1)
-        console.log(num2 >= 3)
-        if (num2 >= 3) {
-            console.log('+++');
-        } else {
-            console.log('---');
-        }
-        if (num1 <= 1) {
-            console.log('+++');
-        } else {
-            console.log('---');
-        }
+        // let num1 = prompt('введите число')
+        // let num2 = prompt('введите число')
+        // console.log(num1 <= 1)
+        // console.log(num2 >= 3)
+        // if (num2 >= 3) {
+        //     console.log('+++');
+        // } else {
+        //     console.log('---');
+        // }
+        // if (num1 <= 1) {
+        //     console.log('+++');
+        // } else {
+        //     console.log('---');
+        // }
 
-        let day = prompt('введите число от 1 до 31')
-        if (day <= 10) {
-            alert('Первая декада');
-        } else if (day <= 20) {
-            alert('Вторая декада');
-        } else if (day <= 31) {
-            alert('Третья декада');
-        } else {
-            alert('Неправильно ввели число');
-        }
-        let num = prompt('введите число')
-        num3 = num / 100
-        num4 = num / 10
-        console.log(`В числе ${num} количество сотен: ${num3%10}, десятков: ${num4%10}, единиц: ${num%10}`)
-    </script>
+        // let day = prompt('введите число от 1 до 31')
+        // if (day <= 10) {
+        //     alert('Первая декада');
+        // } else if (day <= 20) {
+        //     alert('Вторая декада');
+        // } else if (day <= 31) {
+        //     alert('Третья декада');
+        // } else {
+        //     alert('Неправильно ввели число');
+        // }
+        // let num = prompt('введите число')
+        // num3 = num / 100
+        // num4 = num / 10
+        // console.log(`В числе ${num} количество сотен: ${num3%10}, десятков: ${num4%10}, единиц: ${num%10}`)
+        
+    </script> -->
+
 </body>
 
 </html>
