@@ -11,121 +11,71 @@
 <body>
 
     <script src="js/script.js"></script>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title" data-number="100">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text" data-number="50">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <a href="#" id="super_link" class="card-link">Card link</a>
-            <a href="#" class="card-link" data-number="50">Another link</a>
+    <p class="dropdown">Привет :)</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Dropdown button
+</button>
+        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
         </div>
     </div>
     <script>
-        /* 1. Найти по id, используя getElementById, элемент с id равным "super_link" и вывести этот элемент в консоль.
+        /*1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс "super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.    */
+        document.querySelectorAll(".dropdown-item").forEach(function(element) {
+            element.classList.add("super-dropdown");
+        });
+
+
+
+        /*
+        2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он
+        присутствует у этого элемента, либо добавить, если такого класса у элемента
+        не было.
          */
-        let super_link = document.getElementById('super_link');
-        console.log(super_link);
+        const btn = document.querySelector('.btn');
+        btn.classList.toggle('btn-secondary');
+
+
         /*
-        2. Внутри всех элементов на странице, которые имеют класс "card-link",
-        поменяйте текст внутри элемента на "ссылка".
-        */
-        const cardELLink = document.querySelectorAll('.card-link');
-        cardELLink.forEach(element => {
-            cardELLink.textContent = 'ссылка';
+        3. Необходимо удалить класс "dropdown-menu" у элемента, у которого
+        присутствует класс "menu".
+         */
+        var menu = document.querySelector('.menu');
+        menu.classList.remove('dropdown-menu');
+
+        /*
+        4. Используя метод insertAdjacentHTML добавьте после div'a с классом
+        "dropdown" следующую разметку:
+          <a href="#">link</a>
+         */
+        document.querySelectorAll(".dropdown").forEach(function(element) {
+            element.insertAdjacentHTML("beforebegin", '<a href="#">link</a>');
         });
 
         /*
-        3. Найти все элементы на странице с классом "card-link", которые лежат в
-        элементе с классом "card-body" и вывести полученную коллекцию в консоль.
-        */
-        const cardLinkEl = document.querySelectorAll('.card-body .card-link');
-        cardLinkEl.forEach(element => {
-            console.log(cardLinkEl);
-        });
+        5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
+         */
+        document.getElementById("dropdownMenuButton").id = "superDropdown";
+
 
         /*
-        4. Найти первый попавшийся элемент на странице у которого есть атрибут
-        data-number со значением 50 и вывести его в консоль.
-        */
-        let div = document.querySelector('div')
-        console.log(div.getAttribute('data-number'));
+        6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
+        атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
+         */
+        const dropdownMenuButton = document.querySelector('[aria-labelledby="dropdownMenuButton"]');
+        dropdownMenuButton.dataset.dd = 3;
+
+
         /*
-        5. Выведите содержимое тега title в консоль.
-        */
-        let title = document.getElementById('title');
-        console.log(title);
-        /*
-        6. Получите элемент с классом "card-title" и выведите его родительский узел
-        в консоль.
-        */
-        let cardtitle = document.getElementsByClassName('card-title');
-        console.log(cardtitle);
-        /*
-        7. Создайте тег p, запишите внутри него текст "Привет" и добавьте созданный
-        тег в начало элемента, который имеет класс "card".
-        */
-        const paragraf = document.createElement('p');
-        paragraf.textContent = 'Привет';
-        console.log(paragraf);
-        /*
-        8. Удалите тег h6 на странице.
-        */
-        const tegh6 = document.querySelector('h6');
-        tegh6.remove();
+        7. Удалите атрибут type у элемента с классом "dropdown-toggle".
+         */
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        dropdownToggle.removeAttribute('type');
     </script>
-    <!-- <script>
-        // let temperatureCelsius = 25;
-        // let temperatureFahrenheit = (9 / 5) * temperatureCelsius + 32;
-        // console.log(`температура в градусах Цельсия = ${temperatureCelsius} С
-        // температура в градусах Фаренгейта = ${temperatureFahrenheit} F`)
-        // let name = 'Akhmed';
-        // let admin = name;
-        // console.log(admin)
-        // let d = 10;
-        // let c = 2;
-        // let sum = c + d;
-        // console.log(sum);
-        // let sub = c - d;
-        // console.log(sub);
-        // let f = -25;
-        // alert(-f);
-
-        // let num1 = prompt('введите число')
-        // let num2 = prompt('введите число')
-        // console.log(num1 <= 1)
-        // console.log(num2 >= 3)
-        // if (num2 >= 3) {
-        //     console.log('+++');
-        // } else {
-        //     console.log('---');
-        // }
-        // if (num1 <= 1) {
-        //     console.log('+++');
-        // } else {
-        //     console.log('---');
-        // }
-
-        // let day = prompt('введите число от 1 до 31')
-        // if (day <= 10) {
-        //     alert('Первая декада');
-        // } else if (day <= 20) {
-        //     alert('Вторая декада');
-        // } else if (day <= 31) {
-        //     alert('Третья декада');
-        // } else {
-        //     alert('Неправильно ввели число');
-        // }
-        // let num = prompt('введите число')
-        // num3 = num / 100
-        // num4 = num / 10
-        // console.log(`В числе ${num} количество сотен: ${num3%10}, десятков: ${num4%10}, единиц: ${num%10}`)
-        
-    </script> -->
 
 </body>
 
